@@ -1,0 +1,10 @@
+{
+  "description": "",
+  "dependencies": {
+    "vite": "^4.4.11"
+  },
+  "scripts": {
+    "dev": "vite --open"
+  },
+  "type": "module"
+}
