@@ -9,12 +9,23 @@
   <main>
     <h1>Casa de <span>Câmbio</span></h1>
     <form action="">
-      <label for="">Digite a moeda: <br>
-        <input id="coin-input" placeholder="USD" type="text">
-      </label>
+      <div class="inputs">
+        <label for="">Ver cotação de: <br>
+          <input id="coin-code" placeholder="USD" type="text">
+        </label>
+        <label for="">Para: <br>
+          <input value="BRL" id="coin-compare" placeholder="USD" type="text">
+        </label>
+        <label for="">Quantidade de dias: <br>
+          <input value="30" id="days" placeholder="30" type="text">
+        </label>
+      </div>
       <button id="search-btn">Pesquisar</button>
     </form>
-    <div class="coin-results"></div>
+    <div class="coin-results">
+      <h2 id="coin-title">Pesquise uma moeda para ver sua cotação</h2>
+      <ul class="coin-list"></ul>
+    </div>
   </main>
   <script type="module" src="./src/main.js"></script>
 </body>

@@ -2,16 +2,22 @@ import Swal from "sweetalert2"
 import './style.css'
 
 const button = document.querySelector('#search-btn')
-const coinsPanel = document.querySelector('.coin-results')
-const coinInput = document.querySelector('#coin-input')
-
+const coinsPanel = document.querySelector('.coin-list')
+const coinInput = document.querySelector('#coin-code')
+const coinCompare = document.querySelector('#coin-compare')
+const coinTitle = document.querySelector('#coin-title')
+const daysInput = document.querySelector('#days')
 
 
 
 button.addEventListener("click", (event) => {
   event.preventDefault();
   const input = coinInput.value.toUpperCase();
+  const compare = coinCompare.value.toUpperCase();
+  const days = daysInput.value
+
   coinsPanel.innerHTML = ''
+  coinTitle.innerText = 'Pesquise uma moeda para ver sua cotação'
 
   if (coinInput.value === '') {
     Swal.fire({
@@ -22,19 +28,27 @@ button.addEventListener("click", (event) => {
     })
     return false
   }
-  fetch(`https://economia.awesomeapi.com.br/json/daily/${input}/30`)
+  fetch(`https://economia.awesomeapi.com.br/json/daily/${input}-${compare}/${days}`)
     .then((response) => response.json())
-    .then((coinsInfos) => coinsInfos.forEach((coinInfo) => {
+    .then((coinsInfos) => {
+      const {code, codein} = coinsInfos[0]
+      
+      coinsInfos.forEach((coinInfo) => {
+        
+        const date = new Date(coinInfo.timestamp * 1000)
+        const dateValue = date.toLocaleDateString('pt-BR')
 
-      const coin = document.createElement('p')
-      coin.className = 'coin'
-      coin.textContent = `🪙ASD ${coinInfo.ask}`
-    
-      coinsPanel.appendChild(coin)
+        const coin = document.createElement('li')
+        coin.className = 'coin'
+        coin.innerHTML = `<span id="date">${dateValue}</span>  -  <span id="cotation">${coinInfo.ask}</span>`
+      
+        coinsPanel.appendChild(coin)
 
-      coinInput.value = '';
+        coinInput.value = '';
   
-    }))
+    })
+    coinTitle.innerHTML = `Cotação de ${code}/${codein} dos últimos 30 dias`
+  })
     .catch((error) => {
       Swal.fire({
         title: 'Moeda não encontrada',
