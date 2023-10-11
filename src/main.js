@@ -47,7 +47,7 @@ button.addEventListener("click", (event) => {
         coinInput.value = '';
   
     })
-    coinTitle.innerHTML = `Cotação de ${code}/${codein} dos últimos 30 dias`
+    coinTitle.innerHTML = `Cotação de ${code}/${codein} dos últimos ${days} dias`
   })
     .catch((error) => {
       Swal.fire({
