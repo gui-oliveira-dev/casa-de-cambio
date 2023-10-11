@@ -1,0 +1,100 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin-top: 3%;
+  background-color: rgb(44, 44, 44);
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  color: #FFF;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 10px;
+}
+
+span {
+  color: #96EB95;
+}
+
+form {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+label {
+  color: white;
+}
+
+button {
+  width: 171px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid #96EB95;
+  background: #96EB95;
+  color: #373737;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+input {
+  margin-top: 10px;
+  width: 171px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: rgba(217, 217, 217, 0.10);
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+  color: white;
+}
+
+input::placeholder {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  line-height: normal;
+}
+
+.coin-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  height: 583px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06); 
+}
+
+.coin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin: 5px;
+  width: 150px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.20);
+}
+
